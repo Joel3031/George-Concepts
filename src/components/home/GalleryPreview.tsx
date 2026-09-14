@@ -1,0 +1,97 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { Maximize2, ArrowRight } from "lucide-react";
+import { GalleryItem } from "@/types";
+import { dataService } from "@/lib/services/dataService";
+import { SectionHeading } from "../ui/SectionHeading";
+import { Lightbox } from "../ui/Lightbox";
+import { Button } from "../ui/Button";
+
+export const GalleryPreview: React.FC = () => {
+  const [items, setItems] = useState<GalleryItem[]>([]);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    async function load() {
+      try {
+        const data = await dataService.getGallery();
+        setItems(data.filter((g) => g.published));
+      } catch (e) {
+        console.error("Error loading gallery preview:", e);
+      }
+    }
+    load();
+  }, []);
+
+  if (items.length === 0) return null;
+
+  const displayItems = items.slice(0, 6);
+
+  return (
+    <section className="py-24 bg-white border-t border-[#E5E2D9]" id="gallery">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          badge="DESIGN INSPIRATION"
+          title="Architectural & Interior Gallery"
+          subtitle="A curated glimpse into custom joinery details, living room concepts, kitchen islands, and structural facades."
+        />
+
+        {/* Masonry / Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {displayItems.map((item, idx) => (
+            <div
+              key={item.id}
+              onClick={() => setLightboxIndex(idx)}
+              className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-100 cursor-pointer border border-[#E5E2D9] shadow-sm hover:shadow-xl transition-all duration-300"
+            >
+              <Image
+                src={item.image_url}
+                alt={item.title}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0C3B2E]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#A2D157]">
+                  {item.category}
+                </span>
+                <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
+                <div className="inline-flex items-center text-xs font-semibold text-white/90">
+                  <Maximize2 className="w-4 h-4 mr-1 text-[#76A035]" /> View Full Resolution
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* View Full Gallery CTA */}
+        <div className="text-center">
+          <Button href="/gallery" variant="outline" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
+            Explore Full Design Gallery
+          </Button>
+        </div>
+      </div>
+
+      {/* Lightbox Modal */}
+      <Lightbox
+        items={displayItems}
+        currentIndex={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        onNext={() =>
+          setLightboxIndex((prev) =>
+            prev !== null ? (prev + 1) % displayItems.length : 0
+          )
+        }
+        onPrev={() =>
+          setLightboxIndex((prev) =>
+            prev !== null
+              ? (prev - 1 + displayItems.length) % displayItems.length
+              : 0
+          )
+        }
+      />
+    </section>
+  );
+};
