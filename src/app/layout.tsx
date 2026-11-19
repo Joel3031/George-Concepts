@@ -12,9 +12,11 @@ const isPreview =
 
 export const metadata: Metadata = {
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,
-  alternates: {
-    canonical: "./",
-  },
+  alternates: isPreview
+    ? undefined
+    : {
+        canonical: "./",
+      },
   title: {
     default: `${siteConfig.name} | Architecture & Interior Design Studio | Aloor, Thrissur`,
     template: `%s | ${siteConfig.name}`,

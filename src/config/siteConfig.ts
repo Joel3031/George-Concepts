@@ -13,6 +13,11 @@ export const getSiteUrl = (): string => {
     }
   }
 
+  // Ensure protocol is present if url is non-empty
+  if (url && !url.startsWith("http://") && !url.startsWith("https://")) {
+    url = `https://${url}`;
+  }
+
   // Strip trailing slashes for consistent URL joining
   return url.replace(/\/+$/, "");
 };
@@ -24,9 +29,9 @@ export const siteConfig = {
   architectTitle: "Architect",
   tagline: "Designing Spaces. Building Dreams.",
   subTagline: "Residential Architecture, Commercial Architecture, Interior Design & Turnkey Services in Thrissur, Kerala.",
-  
+
   description: "George Concepts Design Studio by architect Jispin George delivers residential architecture, commercial building design, bespoke interior solutions, and turnkey services in Aloor, Thrissur, Kerala.",
-  
+
   // Base URL configuration (configurable via NEXT_PUBLIC_SITE_URL, SITE_URL or Vercel system vars)
   url: getSiteUrl(),
   socialPreviewImage: "/images/george-concepts-social-preview.jpg",
@@ -42,9 +47,9 @@ export const siteConfig = {
 
   // Contact & Location Configuration (customizable via env vars or config)
   contact: {
-    phone: process.env.NEXT_PUBLIC_SITE_PHONE || "+91 98765 43210",
+    phone: process.env.NEXT_PUBLIC_SITE_PHONE || "+91 9037966377",
     email: process.env.NEXT_PUBLIC_SITE_EMAIL || "hello@georgeconcepts.com",
-    whatsapp: process.env.NEXT_PUBLIC_SITE_WHATSAPP || "919876543210", // Digits with country code, no + or spaces
+    whatsapp: process.env.NEXT_PUBLIC_SITE_WHATSAPP || "919037966377", // Digits with country code, no + or spaces
     whatsappWelcomeMsg: "Hello George Concepts! I would like to inquire about an architectural/interior project.",
     address: process.env.NEXT_PUBLIC_SITE_ADDRESS || "George Concepts Design Studio, Aloor, Thrissur, Kerala, India",
   },
