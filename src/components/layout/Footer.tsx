@@ -6,14 +6,14 @@ import { siteConfig } from "@/config/siteConfig";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#07251D] text-white pt-16 pb-12 border-t border-[#0C3B2E]">
+    <footer className="bg-[#07251D] text-white pt-12 sm:pt-16 pb-8 sm:pb-12 border-t border-[#0C3B2E]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-stone-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 pb-12 sm:pb-16 border-b border-stone-800">
           
           {/* Col 1: Brand Info */}
-          <div className="lg:col-span-2 flex flex-col gap-5">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="relative w-12 h-12">
+          <div className="lg:col-span-2 flex flex-col gap-4 sm:gap-5">
+            <Link href="/" className="flex items-center gap-2.5 sm:gap-3">
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12">
                 <Image
                   src="/images/logo-white.svg"
                   alt="George Concepts Logo"
@@ -22,25 +22,25 @@ export const Footer: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-extrabold text-lg tracking-[0.18em] text-[#A2D157]">
+                <span className="font-extrabold text-base sm:text-lg tracking-[0.16em] sm:tracking-[0.18em] text-[#A2D157]">
                   CONCEPTS
                 </span>
-                <span className="text-xs font-bold tracking-[0.16em] text-white">
+                <span className="text-[11px] sm:text-xs font-bold tracking-[0.14em] sm:tracking-[0.16em] text-white">
                   DESIGN STUDIO
                 </span>
               </div>
             </Link>
 
-            <p className="text-sm text-stone-300 leading-relaxed max-w-md">
+            <p className="text-xs sm:text-sm text-stone-300 leading-relaxed max-w-md">
               {siteConfig.description}
             </p>
 
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-2.5 sm:gap-3 pt-2">
               <a
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-stone-800 hover:bg-[#76A035] flex items-center justify-center transition-colors duration-300 text-white"
+                className="w-11 h-11 rounded-full bg-stone-800 hover:bg-[#76A035] active:scale-95 flex items-center justify-center transition-colors duration-300 text-white"
                 aria-label="Instagram Profile"
               >
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -53,21 +53,21 @@ export const Footer: React.FC = () => {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-stone-800 hover:bg-[#76A035] flex items-center justify-center transition-colors duration-300 text-white"
+                className="w-11 h-11 rounded-full bg-stone-800 hover:bg-[#76A035] active:scale-95 flex items-center justify-center transition-colors duration-300 text-white"
                 aria-label="WhatsApp Direct Chat"
               >
                 <span className="font-bold text-xs">WA</span>
               </a>
               <a
                 href={`tel:${siteConfig.contact.phone}`}
-                className="w-10 h-10 rounded-full bg-stone-800 hover:bg-[#76A035] flex items-center justify-center transition-colors duration-300 text-white"
+                className="w-11 h-11 rounded-full bg-stone-800 hover:bg-[#76A035] active:scale-95 flex items-center justify-center transition-colors duration-300 text-white"
                 aria-label="Call Studio"
               >
                 <Phone className="w-4 h-4" />
               </a>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="w-10 h-10 rounded-full bg-stone-800 hover:bg-[#76A035] flex items-center justify-center transition-colors duration-300 text-white"
+                className="w-11 h-11 rounded-full bg-stone-800 hover:bg-[#76A035] active:scale-95 flex items-center justify-center transition-colors duration-300 text-white"
                 aria-label="Email Studio"
               >
                 <Mail className="w-4 h-4" />
@@ -112,7 +112,7 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/admin" className="text-stone-500 hover:text-stone-300 text-xs transition-colors">
+                <Link href="/admin" rel="nofollow" className="text-stone-500 hover:text-stone-300 text-xs transition-colors">
                   Admin Portal
                 </Link>
               </li>
@@ -173,13 +173,13 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Legal Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 gap-4">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 gap-3 sm:gap-4 text-center sm:text-left">
           <p>© 2026 George Concepts Design Studio. All Rights Reserved.</p>
-          <div className="flex items-center gap-6">
-            <Link href="/contact" className="hover:text-white transition-colors">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <Link href="/contact" className="hover:text-white transition-colors py-1.5">
               Privacy Policy
             </Link>
-            <Link href="/contact" className="hover:text-white transition-colors">
+            <Link href="/contact" className="hover:text-white transition-colors py-1.5">
               Terms & Conditions
             </Link>
           </div>

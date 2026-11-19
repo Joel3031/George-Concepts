@@ -31,7 +31,7 @@ export const BeforeAfterSection: React.FC = () => {
   const current = items[activeIndex];
 
   return (
-    <section className="py-24 bg-[#FAF9F5] border-t border-[#E5E2D9]">
+    <section className="py-14 sm:py-20 lg:py-24 bg-[#FAF9F5] border-t border-[#E5E2D9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="TRANSFORMATIONS"
@@ -41,13 +41,13 @@ export const BeforeAfterSection: React.FC = () => {
 
         {/* Tab Selection if multiple items */}
         {items.length > 1 && (
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-6 sm:mb-10">
             {items.map((item, idx) => (
               <button
                 key={item.id}
                 onClick={() => setActiveIndex(idx)}
                 className={cn(
-                  "px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all duration-300",
+                  "px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs font-semibold tracking-wide transition-all duration-300 min-h-[38px] sm:min-h-[40px] focus:outline-none",
                   activeIndex === idx
                     ? "bg-[#0C3B2E] text-white shadow-md"
                     : "bg-white text-[#0C3B2E] hover:bg-[#E5E2D9] border border-[#E5E2D9]"

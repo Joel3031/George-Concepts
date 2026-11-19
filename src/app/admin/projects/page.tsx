@@ -82,10 +82,10 @@ export default function AdminProjectsPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-[#E5E2D9]">
         <div>
-          <h1 className="text-3xl font-extrabold text-[#0C3B2E]">Projects CMS</h1>
-          <p className="text-sm text-[#636E6A] mt-1">Manage your portfolio projects, categories, and image links.</p>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0C3B2E]">Projects CMS</h1>
+          <p className="text-xs sm:text-sm text-[#636E6A] mt-1">Manage your portfolio projects, categories, and image links.</p>
         </div>
-        <Button onClick={handleOpenCreate} variant="primary" icon={<Plus className="w-4 h-4" />}>
+        <Button onClick={handleOpenCreate} variant="primary" className="w-full sm:w-auto" icon={<Plus className="w-4 h-4" />}>
           Add New Project
         </Button>
       </div>
@@ -184,7 +184,7 @@ export default function AdminProjectsPage() {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="block font-bold uppercase text-[#0C3B2E] mb-1">Category</label>
                 <select
@@ -192,7 +192,7 @@ export default function AdminProjectsPage() {
                   onChange={(e) =>
                     setEditingProject({ ...editingProject, category: e.target.value as ProjectCategory })
                   }
-                  className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+                  className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm bg-white"
                 >
                   <option value="Interior">Interior Design</option>
                   <option value="Turnkey">Turnkey Construction</option>
@@ -207,7 +207,7 @@ export default function AdminProjectsPage() {
                   type="text"
                   value={editingProject.location || ""}
                   onChange={(e) => setEditingProject({ ...editingProject, location: e.target.value })}
-                  className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+                  className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm bg-white"
                 />
               </div>
             </div>
@@ -219,7 +219,7 @@ export default function AdminProjectsPage() {
                 required
                 value={editingProject.cover_image || ""}
                 onChange={(e) => setEditingProject({ ...editingProject, cover_image: e.target.value })}
-                className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+                className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm bg-white"
               />
             </div>
 
@@ -229,7 +229,7 @@ export default function AdminProjectsPage() {
                 type="text"
                 value={editingProject.short_description || ""}
                 onChange={(e) => setEditingProject({ ...editingProject, short_description: e.target.value })}
-                className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+                className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm bg-white"
               />
             </div>
 
@@ -239,18 +239,18 @@ export default function AdminProjectsPage() {
                 rows={4}
                 value={editingProject.description || ""}
                 onChange={(e) => setEditingProject({ ...editingProject, description: e.target.value })}
-                className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm resize-none"
+                className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm bg-white resize-none"
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="block font-bold uppercase text-[#0C3B2E] mb-1">Before Image URL (Optional)</label>
                 <input
                   type="url"
                   value={editingProject.before_image || ""}
                   onChange={(e) => setEditingProject({ ...editingProject, before_image: e.target.value })}
-                  className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+                  className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm bg-white"
                 />
               </div>
 
@@ -260,7 +260,7 @@ export default function AdminProjectsPage() {
                   type="url"
                   value={editingProject.after_image || ""}
                   onChange={(e) => setEditingProject({ ...editingProject, after_image: e.target.value })}
-                  className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+                  className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm bg-white"
                 />
               </div>
             </div>

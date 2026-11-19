@@ -25,19 +25,19 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   };
 
   return (
-    <div className={cn("flex flex-col max-w-3xl mb-12 md:mb-16", alignmentClasses[align], className)}>
+    <div className={cn("flex flex-col max-w-3xl mb-8 sm:mb-12 md:mb-16", alignmentClasses[align], className)}>
       {badge && (
-        <div className="inline-flex items-center gap-2 mb-3">
-          <span className="w-8 h-[2px] bg-[#76A035]" />
-          <span className="text-xs md:text-sm uppercase tracking-[0.25em] font-bold text-[#76A035]">
+        <div className="inline-flex items-center gap-2 mb-2.5 sm:mb-3">
+          <span className="w-6 sm:w-8 h-[2px] bg-[#76A035]" />
+          <span className="text-[11px] sm:text-xs md:text-sm uppercase tracking-[0.16em] sm:tracking-[0.25em] font-bold text-[#76A035]">
             {badge}
           </span>
-          {align === "center" && <span className="w-8 h-[2px] bg-[#76A035]" />}
+          {align === "center" && <span className="w-6 sm:w-8 h-[2px] bg-[#76A035]" />}
         </div>
       )}
       <h2
         className={cn(
-          "text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.15]",
+          "text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.18] sm:leading-[1.15]",
           dark ? "text-white" : "text-[#0C3B2E]"
         )}
       >
@@ -46,7 +46,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       {subtitle && (
         <p
           className={cn(
-            "mt-4 text-base sm:text-lg leading-relaxed max-w-2xl font-normal",
+            "mt-3 sm:mt-4 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl font-normal",
             dark ? "text-stone-300" : "text-[#636E6A]"
           )}
         >

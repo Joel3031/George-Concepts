@@ -21,7 +21,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium transition-all duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-[0.98]";
+    "inline-flex items-center justify-center font-medium transition-all duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-[0.98] select-none";
 
   const variants = {
     primary:
@@ -37,9 +37,9 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const sizes = {
-    sm: "px-4 py-2 text-xs tracking-wider uppercase",
-    md: "px-6 py-3 text-sm tracking-wide",
-    lg: "px-8 py-4 text-base tracking-wide font-semibold",
+    sm: "px-4 py-2.5 min-h-[44px] text-xs tracking-wider uppercase",
+    md: "px-6 py-3 min-h-[46px] text-sm tracking-wide",
+    lg: "px-7 py-3.5 sm:px-8 sm:py-4 min-h-[48px] text-sm sm:text-base tracking-wide font-semibold",
   };
 
   const combinedClasses = cn(baseStyles, variants[variant], sizes[size], className);

@@ -14,18 +14,18 @@ export default function AdminSettingsPage() {
       </div>
 
       {/* Supabase Integration Card */}
-      <div className="p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm space-y-4">
-        <div className="flex items-center justify-between">
+      <div className="p-4 sm:p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="flex items-center gap-3">
-            <Key className="w-6 h-6 text-[#76A035]" />
+            <Key className="w-6 h-6 text-[#76A035] shrink-0" />
             <div>
-              <h3 className="text-lg font-bold text-[#0C3B2E]">Supabase Database & Storage Connection</h3>
+              <h3 className="text-base sm:text-lg font-bold text-[#0C3B2E]">Supabase Database & Storage</h3>
               <p className="text-xs text-[#636E6A]">Cloud SQL database & image storage bucket configuration.</p>
             </div>
           </div>
 
           <span
-            className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+            className={`px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider self-start sm:self-auto ${
               isSupabaseConfigured
                 ? "bg-emerald-100 text-emerald-800"
                 : "bg-amber-100 text-amber-800"
@@ -35,7 +35,7 @@ export default function AdminSettingsPage() {
           </span>
         </div>
 
-        <div className="p-4 rounded-xl bg-[#FAF9F5] border border-[#E5E2D9] text-xs space-y-2 font-mono text-[#0C3B2E]">
+        <div className="p-4 rounded-xl bg-[#FAF9F5] border border-[#E5E2D9] text-xs space-y-2 font-mono text-[#0C3B2E] break-all">
           <p>NEXT_PUBLIC_SUPABASE_URL={process.env.NEXT_PUBLIC_SUPABASE_URL || "(Not configured in .env.local)"}</p>
           <p>NEXT_PUBLIC_SUPABASE_ANON_KEY={process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ? "●●●●●●●●●●●●" : "(Not configured in .env.local)"}</p>
         </div>
@@ -54,7 +54,7 @@ export default function AdminSettingsPage() {
       </div>
 
       {/* Business Information Card */}
-      <div className="p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm space-y-4">
+      <div className="p-4 sm:p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm space-y-4">
         <h3 className="text-lg font-bold text-[#0C3B2E] border-b border-[#E5E2D9] pb-3">
           Configured Business Contact Details
         </h3>

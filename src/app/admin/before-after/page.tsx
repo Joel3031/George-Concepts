@@ -66,14 +66,15 @@ export default function AdminBeforeAfterPage() {
       {loading ? (
         <div className="py-12 text-center text-[#636E6A]">Loading sliders...</div>
       ) : items.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {items.map((item) => (
-            <div key={item.id} className="p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm space-y-4">
+            <div key={item.id} className="p-4 sm:p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm space-y-4">
               <div className="flex items-center justify-between">
                 <h3 className="text-base font-bold text-[#0C3B2E]">{item.title}</h3>
                 <button
                   onClick={() => handleDelete(item.id)}
-                  className="p-1.5 rounded-lg bg-red-50 text-red-600 hover:bg-red-600 hover:text-white transition-colors"
+                  className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-lg bg-red-50 text-red-600 hover:bg-red-600 hover:text-white transition-colors"
+                  aria-label="Delete item"
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
@@ -111,7 +112,7 @@ export default function AdminBeforeAfterPage() {
               required
               value={newItem.title || ""}
               onChange={(e) => setNewItem({ ...newItem, title: e.target.value })}
-              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm"
             />
           </div>
 
@@ -122,7 +123,7 @@ export default function AdminBeforeAfterPage() {
               required
               value={newItem.before_image || ""}
               onChange={(e) => setNewItem({ ...newItem, before_image: e.target.value })}
-              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm"
             />
           </div>
 
@@ -133,7 +134,7 @@ export default function AdminBeforeAfterPage() {
               required
               value={newItem.after_image || ""}
               onChange={(e) => setNewItem({ ...newItem, after_image: e.target.value })}
-              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm"
             />
           </div>
 
@@ -143,7 +144,7 @@ export default function AdminBeforeAfterPage() {
               rows={3}
               value={newItem.description || ""}
               onChange={(e) => setNewItem({ ...newItem, description: e.target.value })}
-              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm resize-none"
+              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm resize-none"
             />
           </div>
 

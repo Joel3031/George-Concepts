@@ -30,24 +30,24 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   return (
     <div
       className={cn(
-        "group relative flex flex-col p-8 bg-white rounded-xl border border-[#E5E2D9] shadow-sm hover:shadow-xl hover:border-[#76A035]/40 hover:-translate-y-1 transition-all duration-300",
+        "group relative flex flex-col p-5 sm:p-6 lg:p-8 bg-white rounded-xl border border-[#E5E2D9] shadow-sm hover:shadow-xl hover:border-[#76A035]/40 hover:-translate-y-1 transition-all duration-300",
         className
       )}
     >
       {/* Icon Badge */}
-      <div className="w-14 h-14 rounded-xl bg-[#FAF9F5] group-hover:bg-[#0C3B2E] text-[#0C3B2E] group-hover:text-white flex items-center justify-center mb-6 transition-all duration-300 shadow-inner">
-        {iconMap[icon] || <Home className="w-7 h-7" />}
+      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#FAF9F5] group-hover:bg-[#0C3B2E] text-[#0C3B2E] group-hover:text-white flex items-center justify-center mb-4 sm:mb-6 transition-all duration-300 shadow-inner">
+        {iconMap[icon] || <Home className="w-6 h-6 sm:w-7 sm:h-7" />}
       </div>
 
-      <h3 className="text-xl font-bold text-[#0C3B2E] mb-3 group-hover:text-[#5B8A3C] transition-colors duration-300">
+      <h3 className="text-lg sm:text-xl font-bold text-[#0C3B2E] mb-2 sm:mb-3 group-hover:text-[#5B8A3C] transition-colors duration-300">
         {title}
       </h3>
 
-      <p className="text-sm text-[#636E6A] leading-relaxed flex-grow mb-6">
+      <p className="text-xs sm:text-sm text-[#636E6A] leading-relaxed flex-grow mb-5 sm:mb-6">
         {shortDesc}
       </p>
 
-      <div className="pt-4 border-t border-[#E5E2D9]/60 flex items-center text-xs font-bold uppercase tracking-wider text-[#76A035] group-hover:text-[#0C3B2E] transition-colors duration-300">
+      <div className="pt-3.5 sm:pt-4 border-t border-[#E5E2D9]/60 flex items-center text-xs font-bold uppercase tracking-wider text-[#76A035] group-hover:text-[#0C3B2E] transition-colors duration-300">
         <span>Learn More</span>
         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
       </div>

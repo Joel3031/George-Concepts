@@ -24,7 +24,7 @@ export const TestimonialsSection: React.FC = () => {
   if (testimonials.length === 0) return null;
 
   return (
-    <section className="py-24 bg-[#FAF9F5] border-t border-[#E5E2D9]" id="testimonials">
+    <section className="py-14 sm:py-20 lg:py-24 bg-[#FAF9F5] border-t border-[#E5E2D9]" id="testimonials">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="CLIENT EXPERIENCES"
@@ -32,7 +32,7 @@ export const TestimonialsSection: React.FC = () => {
           subtitle="Read honest feedback from homeowners and property developers who partnered with George Concepts for architecture, interiors, and turnkey construction."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {testimonials.map((t) => (
             <TestimonialCard key={t.id} testimonial={t} />
           ))}

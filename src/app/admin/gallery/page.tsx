@@ -92,7 +92,8 @@ export default function AdminGalleryPage() {
               <div className="pt-3 mt-3 border-t border-[#E5E2D9] flex justify-end">
                 <button
                   onClick={() => handleDelete(item.id)}
-                  className="p-1.5 rounded-lg bg-red-50 hover:bg-red-600 hover:text-white text-red-600 transition-colors"
+                  className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-lg bg-red-50 hover:bg-red-600 hover:text-white text-red-600 transition-colors"
+                  aria-label="Delete gallery item"
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
@@ -113,7 +114,7 @@ export default function AdminGalleryPage() {
               required
               value={newItem.title || ""}
               onChange={(e) => setNewItem({ ...newItem, title: e.target.value })}
-              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm"
             />
           </div>
 
@@ -122,7 +123,7 @@ export default function AdminGalleryPage() {
             <select
               value={newItem.category || "Interiors"}
               onChange={(e) => setNewItem({ ...newItem, category: e.target.value })}
-              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm bg-white"
             >
               {siteConfig.galleryCategories.filter((c) => c !== "All").map((c) => (
                 <option key={c} value={c}>{c}</option>
@@ -137,7 +138,7 @@ export default function AdminGalleryPage() {
               required
               value={newItem.image_url || ""}
               onChange={(e) => setNewItem({ ...newItem, image_url: e.target.value })}
-              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm"
             />
           </div>
 
@@ -147,7 +148,7 @@ export default function AdminGalleryPage() {
               type="text"
               value={newItem.description || ""}
               onChange={(e) => setNewItem({ ...newItem, description: e.target.value })}
-              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm"
             />
           </div>
 

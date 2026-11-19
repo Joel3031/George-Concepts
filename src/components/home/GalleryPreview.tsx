@@ -30,7 +30,7 @@ export const GalleryPreview: React.FC = () => {
   const displayItems = items.slice(0, 6);
 
   return (
-    <section className="py-24 bg-white border-t border-[#E5E2D9]" id="gallery">
+    <section className="py-14 sm:py-20 lg:py-24 bg-white border-t border-[#E5E2D9]" id="gallery">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="DESIGN INSPIRATION"
@@ -39,27 +39,28 @@ export const GalleryPreview: React.FC = () => {
         />
 
         {/* Masonry / Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {displayItems.map((item, idx) => (
             <div
               key={item.id}
               onClick={() => setLightboxIndex(idx)}
-              className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-100 cursor-pointer border border-[#E5E2D9] shadow-sm hover:shadow-xl transition-all duration-300"
+              className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-100 cursor-pointer border border-[#E5E2D9] shadow-sm hover:shadow-xl transition-all duration-300 active:scale-[0.99]"
             >
               <Image
                 src={item.image_url}
-                alt={item.title}
+                alt={`${item.title} — ${item.category} by George Concepts`}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0C3B2E]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#A2D157]">
+              {/* Overlay with details */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0C3B2E]/90 via-[#0C3B2E]/30 to-transparent opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 p-4 sm:p-6 flex flex-col justify-end">
+                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#A2D157]">
                   {item.category}
                 </span>
-                <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
+                <h4 className="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2 line-clamp-1">{item.title}</h4>
                 <div className="inline-flex items-center text-xs font-semibold text-white/90">
-                  <Maximize2 className="w-4 h-4 mr-1 text-[#76A035]" /> View Full Resolution
+                  <Maximize2 className="w-3.5 h-3.5 mr-1 text-[#76A035]" /> View Full Resolution
                 </div>
               </div>
             </div>
@@ -68,7 +69,7 @@ export const GalleryPreview: React.FC = () => {
 
         {/* View Full Gallery CTA */}
         <div className="text-center">
-          <Button href="/gallery" variant="outline" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
+          <Button href="/gallery" variant="outline" size="lg" className="w-full sm:w-auto" icon={<ArrowRight className="w-4 h-4" />}>
             Explore Full Design Gallery
           </Button>
         </div>

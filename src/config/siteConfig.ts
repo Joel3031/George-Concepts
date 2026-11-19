@@ -1,26 +1,56 @@
+export const getSiteUrl = (): string => {
+  // 1. Explicit production custom domain or manual override (Priority 1)
+  let url = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "";
+
+  // 2. Vercel deployment URL (Priority 2, for preview & deployment testing before custom domain is linked)
+  if (!url) {
+    if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+      url = `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+    } else if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+      url = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+    } else if (process.env.VERCEL_URL) {
+      url = `https://${process.env.VERCEL_URL}`;
+    }
+  }
+
+  // Strip trailing slashes for consistent URL joining
+  return url.replace(/\/+$/, "");
+};
+
 export const siteConfig = {
   name: "George Concepts",
   brandName: "George Concepts Design Studio",
+  architect: "Jispin George",
+  architectTitle: "Architect",
   tagline: "Designing Spaces. Building Dreams.",
-  subTagline: "From Concept to Handover — Architecture, Interiors, Renovation, & Turnkey Residential Construction thoughtfully executed for modern living.",
+  subTagline: "Residential Architecture, Commercial Architecture, Interior Design & Turnkey Services in Thrissur, Kerala.",
   
-  description: "George Concepts Design Studio brings architecture, interior design, home renovation, space planning, and turnkey construction together under one roof.",
+  description: "George Concepts Design Studio by architect Jispin George delivers residential architecture, commercial building design, bespoke interior solutions, and turnkey services in Aloor, Thrissur, Kerala.",
   
-  // Contact & Location Configuration (Easily customizable via env vars or config)
+  // Base URL configuration (configurable via NEXT_PUBLIC_SITE_URL, SITE_URL or Vercel system vars)
+  url: getSiteUrl(),
+  socialPreviewImage: "/images/george-concepts-social-preview.jpg",
+
+  // Verified Location Details
+  location: {
+    locality: "Aloor",
+    city: "Thrissur",
+    state: "Kerala",
+    country: "India",
+    countryCode: "IN",
+  },
+
+  // Contact & Location Configuration (customizable via env vars or config)
   contact: {
     phone: process.env.NEXT_PUBLIC_SITE_PHONE || "+91 98765 43210",
     email: process.env.NEXT_PUBLIC_SITE_EMAIL || "hello@georgeconcepts.com",
     whatsapp: process.env.NEXT_PUBLIC_SITE_WHATSAPP || "919876543210", // Digits with country code, no + or spaces
     whatsappWelcomeMsg: "Hello George Concepts! I would like to inquire about an architectural/interior project.",
-    address: process.env.NEXT_PUBLIC_SITE_ADDRESS || "George Concepts Design Studio, Main Avenue, Kochi, Kerala",
-    workingHours: "Monday – Saturday: 9:00 AM – 6:30 PM",
+    address: process.env.NEXT_PUBLIC_SITE_ADDRESS || "George Concepts Design Studio, Aloor, Thrissur, Kerala, India",
   },
 
   social: {
     instagram: "https://www.instagram.com/georgeconcepts/",
-    facebook: "https://facebook.com/georgeconcepts",
-    linkedin: "https://linkedin.com/company/georgeconcepts",
-    pinterest: "https://pinterest.com/georgeconcepts",
   },
 
   // Service list for quick references & dropdown options
@@ -92,7 +122,7 @@ export const siteConfig = {
   trustStats: [
     { label: "End-to-End Handover", desc: "Single point of accountability from planning to keys" },
     { label: "Precision Planning", desc: "Detailed 3D visualizations and structural blueprints" },
-    { label: "Premium Materials", desc: "Handpicked sustainable stone, wood, and metal finishes" },
+    { label: "Premium Materials", desc: "Handpicked quality stone, wood, and metal finishes" },
     { label: "Client Collaboration", desc: "Transparent milestone updates throughout execution" },
   ],
 

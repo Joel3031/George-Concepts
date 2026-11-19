@@ -40,85 +40,85 @@ export default function AdminDashboardPage() {
   return (
     <div className="space-y-8">
       {/* Top Banner Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-[#E5E2D9]">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 sm:pb-6 border-b border-[#E5E2D9]">
         <div>
-          <h1 className="text-3xl font-extrabold text-[#0C3B2E]">Dashboard Overview</h1>
-          <p className="text-sm text-[#636E6A] mt-1">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0C3B2E]">Dashboard Overview</h1>
+          <p className="text-xs sm:text-sm text-[#636E6A] mt-1">
             Welcome to George Concepts Design Studio Content Management System.
           </p>
         </div>
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#76A035]/15 text-[#0C3B2E] text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#76A035]/15 text-[#0C3B2E] text-xs font-bold uppercase tracking-wider self-start sm:self-auto">
           <CheckCircle2 className="w-4 h-4 text-[#76A035]" /> System Online
         </div>
       </div>
 
       {/* Metrics Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         
         {/* Metric 1 */}
-        <div className="p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm flex items-center justify-between">
+        <div className="p-4 sm:p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm flex items-center justify-between">
           <div>
             <p className="text-xs font-bold uppercase tracking-wider text-[#636E6A]">Total Projects</p>
-            <h3 className="text-3xl font-extrabold text-[#0C3B2E] mt-2">{projects.length}</h3>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0C3B2E] mt-1.5 sm:mt-2">{projects.length}</h3>
             <p className="text-[11px] text-[#76A035] font-semibold mt-1">
               {projects.filter((p) => p.published).length} Published
             </p>
           </div>
-          <div className="w-12 h-12 rounded-xl bg-[#FAF9F5] text-[#0C3B2E] flex items-center justify-center">
-            <Briefcase className="w-6 h-6" />
+          <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#FAF9F5] text-[#0C3B2E] flex items-center justify-center shrink-0">
+            <Briefcase className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
         </div>
 
         {/* Metric 2 */}
-        <div className="p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm flex items-center justify-between">
+        <div className="p-4 sm:p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm flex items-center justify-between">
           <div>
             <p className="text-xs font-bold uppercase tracking-wider text-[#636E6A]">Gallery Items</p>
-            <h3 className="text-3xl font-extrabold text-[#0C3B2E] mt-2">{gallery.length}</h3>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0C3B2E] mt-1.5 sm:mt-2">{gallery.length}</h3>
             <p className="text-[11px] text-[#76A035] font-semibold mt-1">High-Res Photos</p>
           </div>
-          <div className="w-12 h-12 rounded-xl bg-[#FAF9F5] text-[#0C3B2E] flex items-center justify-center">
-            <ImageIcon className="w-6 h-6" />
+          <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#FAF9F5] text-[#0C3B2E] flex items-center justify-center shrink-0">
+            <ImageIcon className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
         </div>
 
         {/* Metric 3 */}
-        <div className="p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm flex items-center justify-between">
+        <div className="p-4 sm:p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm flex items-center justify-between">
           <div>
             <p className="text-xs font-bold uppercase tracking-wider text-[#636E6A]">Client Reviews</p>
-            <h3 className="text-3xl font-extrabold text-[#0C3B2E] mt-2">{testimonials.length}</h3>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0C3B2E] mt-1.5 sm:mt-2">{testimonials.length}</h3>
             <p className="text-[11px] text-[#76A035] font-semibold mt-1">Published Reviews</p>
           </div>
-          <div className="w-12 h-12 rounded-xl bg-[#FAF9F5] text-[#0C3B2E] flex items-center justify-center">
-            <MessageSquareQuote className="w-6 h-6" />
+          <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#FAF9F5] text-[#0C3B2E] flex items-center justify-center shrink-0">
+            <MessageSquareQuote className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
         </div>
 
         {/* Metric 4 */}
-        <div className="p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm flex items-center justify-between">
+        <div className="p-4 sm:p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm flex items-center justify-between">
           <div>
             <p className="text-xs font-bold uppercase tracking-wider text-[#636E6A]">Lead Enquiries</p>
-            <h3 className="text-3xl font-extrabold text-[#0C3B2E] mt-2">{contacts.length}</h3>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0C3B2E] mt-1.5 sm:mt-2">{contacts.length}</h3>
             <p className="text-[11px] text-amber-600 font-bold mt-1">
               {newEnquiriesCount} New Unread
             </p>
           </div>
-          <div className="w-12 h-12 rounded-xl bg-[#FAF9F5] text-[#0C3B2E] flex items-center justify-center">
-            <Inbox className="w-6 h-6" />
+          <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#FAF9F5] text-[#0C3B2E] flex items-center justify-center shrink-0">
+            <Inbox className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
         </div>
 
       </div>
 
       {/* Recent Enquiries Table Preview */}
-      <div className="p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm">
-        <div className="flex items-center justify-between mb-6">
+      <div className="p-4 sm:p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 mb-4 sm:mb-6">
           <div>
-            <h3 className="text-lg font-bold text-[#0C3B2E]">Recent Customer Consultations</h3>
+            <h3 className="text-base sm:text-lg font-bold text-[#0C3B2E]">Recent Customer Consultations</h3>
             <p className="text-xs text-[#636E6A]">Submitted lead inquiries from website visitors.</p>
           </div>
           <Link
             href="/admin/contacts"
-            className="text-xs font-bold text-[#76A035] hover:text-[#0C3B2E] inline-flex items-center gap-1"
+            className="text-xs font-bold text-[#76A035] hover:text-[#0C3B2E] inline-flex items-center gap-1 self-start sm:self-auto py-1"
           >
             View All Inbox <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>

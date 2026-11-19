@@ -38,9 +38,9 @@ export const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-white border-t border-[#E5E2D9]">
+    <section className="py-14 sm:py-20 lg:py-24 bg-white border-t border-[#E5E2D9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           
           {/* Left Text Column (7 Cols) */}
           <div className="lg:col-span-7 flex flex-col">
@@ -49,18 +49,18 @@ export const WhyChooseUs: React.FC = () => {
               title="Built Around Ideas. Shaped By Design."
               subtitle="We bring architectural design thinking and turnkey site execution together to create spaces that are aesthetically stunning, effortlessly functional, and built to last."
               align="left"
-              className="mb-8"
+              className="mb-6 sm:mb-8"
             />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6">
               {points.map((pt, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-xl bg-[#FAF9F5] border border-[#E5E2D9] hover:border-[#76A035]/50 transition-all duration-300 flex flex-col"
+                  className="p-4 sm:p-5 rounded-xl bg-[#FAF9F5] border border-[#E5E2D9] hover:border-[#76A035]/50 transition-all duration-300 flex flex-col"
                 >
-                  <div className="flex items-center gap-2.5 mb-2">
+                  <div className="flex items-center gap-2.5 mb-1.5 sm:mb-2">
                     {pt.icon}
-                    <h3 className="text-base font-bold text-[#0C3B2E]">{pt.title}</h3>
+                    <h3 className="text-sm sm:text-base font-bold text-[#0C3B2E]">{pt.title}</h3>
                   </div>
                   <p className="text-xs text-[#636E6A] leading-relaxed">{pt.desc}</p>
                 </div>
@@ -69,20 +69,20 @@ export const WhyChooseUs: React.FC = () => {
           </div>
 
           {/* Right Image Column (5 Cols) */}
-          <div className="lg:col-span-5 relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-[#E5E2D9]">
+          <div className="lg:col-span-5 relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-[#E5E2D9]">
             <Image
               src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80"
-              alt="George Concepts Interior Detail"
+              alt="George Concepts Bespoke Kitchen and Interior Joinery in Thrissur"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0C3B2E]/70 via-transparent to-transparent p-8 flex items-end">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0C3B2E]/70 via-transparent to-transparent p-4 sm:p-8 flex items-end">
               <div className="text-white">
-                <p className="text-xs font-bold uppercase tracking-widest text-[#A2D157] mb-1">
+                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#A2D157] mb-1">
                   Design Philosophy
                 </p>
-                <p className="text-base font-medium italic">
+                <p className="text-sm sm:text-base font-medium italic">
                   &ldquo;A home should reflect the individuals who live inside it while standing the test of time.&rdquo;
                 </p>
               </div>

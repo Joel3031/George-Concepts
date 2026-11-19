@@ -31,11 +31,11 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#07251D] p-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 border border-[#E5E2D9]">
+    <div className="min-h-screen flex items-center justify-center bg-[#07251D] p-3 sm:p-4">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-5 sm:p-8 border border-[#E5E2D9]">
         {/* Logo & Title */}
-        <div className="text-center mb-8">
-          <div className="relative w-16 h-16 mx-auto mb-4">
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="relative w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4">
             <Image
               src="/images/logo.svg"
               alt="George Concepts Logo"
@@ -43,20 +43,20 @@ export default function AdminLoginPage() {
               className="object-contain"
             />
           </div>
-          <h1 className="text-2xl font-bold text-[#0C3B2E]">Admin Portal</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-[#0C3B2E]">Admin Portal</h1>
           <p className="text-xs text-[#636E6A] mt-1">George Concepts CMS Management</p>
         </div>
 
         {error && (
-          <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2">
+          <div className="mb-6 p-3.5 sm:p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2">
             <AlertCircle className="w-4 h-4 shrink-0" />
             <span>{error}</span>
           </div>
         )}
 
-        <form onSubmit={handleLogin} className="space-y-5">
+        <form onSubmit={handleLogin} className="space-y-4 sm:space-y-5">
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-[#0C3B2E] mb-2">
+            <label className="block text-xs font-bold uppercase tracking-wider text-[#0C3B2E] mb-1.5 sm:mb-2">
               Email Address
             </label>
             <div className="relative">
@@ -66,13 +66,13 @@ export default function AdminLoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 rounded-lg border border-[#E5E2D9] bg-[#FAF9F5] text-sm text-[#1C2522] focus:outline-none focus:ring-2 focus:ring-[#76A035]"
+                className="w-full pl-10 pr-4 py-3 rounded-lg border border-[#E5E2D9] bg-[#FAF9F5] text-base sm:text-sm text-[#1C2522] focus:outline-none focus:ring-2 focus:ring-[#76A035]"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-[#0C3B2E] mb-2">
+            <label className="block text-xs font-bold uppercase tracking-wider text-[#0C3B2E] mb-1.5 sm:mb-2">
               Password
             </label>
             <div className="relative">
@@ -82,7 +82,7 @@ export default function AdminLoginPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 rounded-lg border border-[#E5E2D9] bg-[#FAF9F5] text-sm text-[#1C2522] focus:outline-none focus:ring-2 focus:ring-[#76A035]"
+                className="w-full pl-10 pr-4 py-3 rounded-lg border border-[#E5E2D9] bg-[#FAF9F5] text-base sm:text-sm text-[#1C2522] focus:outline-none focus:ring-2 focus:ring-[#76A035]"
               />
             </div>
           </div>

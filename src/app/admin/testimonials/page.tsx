@@ -65,9 +65,9 @@ export default function AdminTestimonialsPage() {
       {loading ? (
         <div className="py-12 text-center text-[#636E6A]">Loading reviews...</div>
       ) : testimonials.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {testimonials.map((t) => (
-            <div key={t.id} className="p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm flex flex-col justify-between">
+            <div key={t.id} className="p-4 sm:p-6 rounded-2xl bg-white border border-[#E5E2D9] shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <h4 className="text-base font-bold text-[#0C3B2E]">{t.client_name}</h4>
@@ -84,7 +84,8 @@ export default function AdminTestimonialsPage() {
               <div className="pt-3 border-t border-[#E5E2D9] flex justify-end">
                 <button
                   onClick={() => handleDelete(t.id)}
-                  className="p-1.5 rounded-lg bg-red-50 text-red-600 hover:bg-red-600 hover:text-white transition-colors"
+                  className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-lg bg-red-50 text-red-600 hover:bg-red-600 hover:text-white transition-colors"
+                  aria-label="Delete testimonial"
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
@@ -105,18 +106,18 @@ export default function AdminTestimonialsPage() {
               required
               value={newItem.client_name || ""}
               onChange={(e) => setNewItem({ ...newItem, client_name: e.target.value })}
-              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm"
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block font-bold uppercase text-[#0C3B2E] mb-1">Location</label>
               <input
                 type="text"
                 value={newItem.location || ""}
                 onChange={(e) => setNewItem({ ...newItem, location: e.target.value })}
-                className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+                className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm"
               />
             </div>
 
@@ -126,7 +127,7 @@ export default function AdminTestimonialsPage() {
                 type="text"
                 value={newItem.project_type || ""}
                 onChange={(e) => setNewItem({ ...newItem, project_type: e.target.value })}
-                className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm"
+                className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm"
               />
             </div>
           </div>
@@ -138,7 +139,7 @@ export default function AdminTestimonialsPage() {
               required
               value={newItem.testimonial || ""}
               onChange={(e) => setNewItem({ ...newItem, testimonial: e.target.value })}
-              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-sm resize-none"
+              className="w-full p-2.5 rounded-lg border border-[#E5E2D9] text-base sm:text-sm resize-none"
             />
           </div>
 

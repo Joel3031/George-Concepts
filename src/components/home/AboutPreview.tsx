@@ -6,12 +6,12 @@ import { Button } from "../ui/Button";
 
 export const AboutPreview: React.FC = () => {
   return (
-    <section className="py-24 bg-[#FAF9F5] border-t border-[#E5E2D9]" id="about">
+    <section className="py-14 sm:py-20 lg:py-24 bg-[#FAF9F5] border-t border-[#E5E2D9]" id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           
           {/* Left Column Image (5 Cols) */}
-          <div className="lg:col-span-5 relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-[#E5E2D9]">
+          <div className="lg:col-span-5 relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-[#E5E2D9]">
             <Image
               src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80"
               alt="George Concepts Design Studio Vision"
@@ -19,8 +19,8 @@ export const AboutPreview: React.FC = () => {
               sizes="(max-width: 1024px) 100vw, 45vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0C3B2E]/60 via-transparent to-transparent p-8 flex items-end">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#A2D157] bg-[#0C3B2E]/80 backdrop-blur-md px-3.5 py-1.5 rounded-md">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0C3B2E]/60 via-transparent to-transparent p-4 sm:p-8 flex items-end">
+              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#A2D157] bg-[#0C3B2E]/80 backdrop-blur-md px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-md">
                 George Concepts Design Studio
               </span>
             </div>
@@ -31,12 +31,12 @@ export const AboutPreview: React.FC = () => {
             <SectionHeading
               badge="ABOUT OUR STUDIO"
               title="Built around ideas. Shaped by design. Delivered through execution."
-              subtitle="George Concepts is a multi-disciplinary residential architecture, interior design, and turnkey construction studio based in Kerala."
+              subtitle="George Concepts is an architecture, interior design, and turnkey construction studio led by architect Jispin George, based in Aloor, Thrissur, Kerala."
               align="left"
-              className="mb-6"
+              className="mb-4 sm:mb-6"
             />
 
-            <div className="space-y-4 text-base text-[#636E6A] leading-relaxed mb-8">
+            <div className="space-y-3.5 sm:space-y-4 text-sm sm:text-base text-[#636E6A] leading-relaxed mb-6 sm:mb-8">
               <p>
                 We believe that great homes are born at the intersection of aesthetic clarity, structural engineering precision, and lifestyle customization. Rather than separating design from site construction, we integrate architectural planning, custom joinery, electrical systems, and finishing under single-source management.
               </p>
@@ -45,8 +45,8 @@ export const AboutPreview: React.FC = () => {
               </p>
             </div>
 
-            <div>
-              <Button href="/about" variant="primary" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
+            <div className="w-full sm:w-auto">
+              <Button href="/about" variant="primary" size="lg" className="w-full sm:w-auto" icon={<ArrowRight className="w-4 h-4" />}>
                 Read Our Studio Story
               </Button>
             </div>
