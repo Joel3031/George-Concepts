@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { GalleryItem } from "@/types";
 
 interface LightboxProps {
@@ -84,20 +84,35 @@ export const Lightbox: React.FC<LightboxProps> = ({
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
     >
-      {/* Close Button */}
-      <button
-        onClick={onClose}
-        className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-stone-900/80 text-white hover:bg-[#76A035] active:scale-95 transition-colors duration-300 focus:outline-none"
-        aria-label="Close Lightbox"
-      >
-        <X className="w-5 h-5 sm:w-6 sm:h-6" />
-      </button>
+      {/* Top Action Controls */}
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 flex items-center gap-2 sm:gap-3">
+        {current.high_res_url && (
+          <a
+            href={current.high_res_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="min-h-[44px] px-3.5 sm:px-4 flex items-center justify-center rounded-full bg-stone-900/80 text-white hover:bg-[#76A035] active:scale-95 transition-all duration-300 focus:outline-none border border-white/10 text-xs font-semibold gap-1.5 shadow-lg"
+            title="Open Master Resolution Blueprint in New Tab"
+          >
+            <ExternalLink className="w-4 h-4 text-[#A2D157]" />
+            <span className="hidden sm:inline">View Original PNG</span>
+          </a>
+        )}
+
+        <button
+          onClick={onClose}
+          className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-stone-900/80 text-white hover:bg-red-600 active:scale-95 transition-colors duration-300 focus:outline-none border border-white/10 shadow-lg"
+          aria-label="Close Lightbox"
+        >
+          <X className="w-5 h-5 sm:w-6 sm:h-6" />
+        </button>
+      </div>
 
       {/* Desktop Prev Button */}
       {items.length > 1 && (
         <button
           onClick={onPrev}
-          className="hidden sm:flex absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-50 min-w-[48px] min-h-[48px] items-center justify-center rounded-full bg-stone-900/80 text-white hover:bg-[#76A035] active:scale-95 transition-colors duration-300 focus:outline-none"
+          className="hidden sm:flex absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-50 min-w-[48px] min-h-[48px] items-center justify-center rounded-full bg-stone-900/80 text-white hover:bg-[#76A035] active:scale-95 transition-colors duration-300 focus:outline-none shadow-xl border border-white/10"
           aria-label="Previous Image"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -105,8 +120,8 @@ export const Lightbox: React.FC<LightboxProps> = ({
       )}
 
       {/* Main Image Display */}
-      <div className="relative max-w-5xl max-h-[92vh] w-full flex flex-col items-center justify-center">
-        <div className="relative w-full h-[50vh] sm:h-[65vh] rounded-xl overflow-hidden shadow-2xl">
+      <div className="relative max-w-6xl max-h-[92vh] w-full flex flex-col items-center justify-center">
+        <div className="relative w-full h-[54vh] sm:h-[68vh] rounded-xl overflow-hidden shadow-2xl bg-stone-950/40">
           <Image
             src={current.image_url}
             alt={current.title}
@@ -118,7 +133,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
         </div>
 
         {/* Caption Bar */}
-        <div className="mt-3 sm:mt-4 text-center max-w-2xl px-2 sm:px-4 max-h-[30vh] overflow-y-auto">
+        <div className="mt-3 sm:mt-4 text-center max-w-3xl px-2 sm:px-4 max-h-[28vh] overflow-y-auto">
           <div className="inline-block px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#76A035] bg-[#0C3B2E] rounded-md mb-1.5 sm:mb-2">
             {current.category}
           </div>
@@ -150,9 +165,11 @@ export const Lightbox: React.FC<LightboxProps> = ({
             </div>
           )}
 
-          <span className="hidden sm:block text-xs text-stone-500 mt-2">
-            {currentIndex + 1} of {items.length} (Use arrow keys or swipe to navigate)
-          </span>
+          <div className="flex items-center justify-center gap-4 text-xs text-stone-500 mt-2">
+            <span className="hidden sm:inline">
+              {currentIndex + 1} of {items.length} (Use arrow keys or swipe to navigate)
+            </span>
+          </div>
         </div>
       </div>
 
@@ -160,7 +177,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
       {items.length > 1 && (
         <button
           onClick={onNext}
-          className="hidden sm:flex absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-50 min-w-[48px] min-h-[48px] items-center justify-center rounded-full bg-stone-900/80 text-white hover:bg-[#76A035] active:scale-95 transition-colors duration-300 focus:outline-none"
+          className="hidden sm:flex absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-50 min-w-[48px] min-h-[48px] items-center justify-center rounded-full bg-stone-900/80 text-white hover:bg-[#76A035] active:scale-95 transition-colors duration-300 focus:outline-none shadow-xl border border-white/10"
           aria-label="Next Image"
         >
           <ChevronRight className="w-6 h-6" />

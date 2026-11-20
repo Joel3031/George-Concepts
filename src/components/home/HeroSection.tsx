@@ -18,8 +18,8 @@ export const HeroSection: React.FC = () => {
         <div className="relative w-full h-[74vh] min-h-[490px] max-h-[640px] overflow-hidden bg-[#07251D]">
           {/* Architectural Image */}
           <Image
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80"
-            alt="George Concepts Residential Architecture & Interior Design"
+            src="/Elevation01_expanded.png"
+            alt="George Concepts Residential Architecture — Kerala Contemporary Elevation"
             fill
             priority
             sizes="100vw"
@@ -41,7 +41,7 @@ export const HeroSection: React.FC = () => {
 
           {/* Bottom Dark Architectural Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#07251D] via-[#07251D]/75 via-45% to-transparent flex flex-col justify-end p-5 pb-6 sm:p-7 z-10">
-            
+
             {/* Compact Eyebrow Label */}
             <div className="inline-flex items-center gap-2 mb-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#A2D157] shrink-0" />
@@ -75,7 +75,7 @@ export const HeroSection: React.FC = () => {
         {/* Supporting Narrative & Service Badges Block (Immediately Below Hero) */}
         <div className="bg-[#FAF9F5] px-4 py-7 sm:py-9 border-b border-[#E5E2D9]">
           <div className="max-w-md mx-auto space-y-5">
-            
+
             {/* Studio Narrative Copy */}
             <div>
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#76A035] block mb-1">
@@ -136,10 +136,10 @@ export const HeroSection: React.FC = () => {
       {/* ========================================================= */}
       <div className="hidden lg:block max-w-7xl mx-auto px-6 lg:px-8 w-full z-10">
         <div className="grid grid-cols-12 gap-8 items-center">
-          
+
           {/* Left Text Block (7 Cols) */}
           <div className="col-span-7 flex flex-col items-start text-left animate-fade-in">
-            
+
             {/* Top Subtitle Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0C3B2E]/5 border border-[#0C3B2E]/10 mb-6 max-w-full">
               <span className="w-2 h-2 rounded-full bg-[#76A035] shrink-0" />
@@ -196,23 +196,23 @@ export const HeroSection: React.FC = () => {
           {/* Right Visual Image Composition (5 Cols) */}
           <div className="col-span-5 relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-[#E5E2D9]">
             <Image
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80"
-              alt="George Concepts Residential Architecture & Interior Design"
+              src="/Elevation01_expanded.png"
+              alt="George Concepts Residential Architecture — Kerala Contemporary Elevation"
               fill
               priority
               sizes="45vw"
-              className="object-cover animate-slow-zoom"
+              className="object-cover object-[25%_center] animate-slow-zoom"
             />
             {/* Dark Gradient Glass Card overlay at bottom */}
             <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-nav-dark text-white shadow-xl border border-white/10 flex items-center justify-between">
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-[#A2D157]">
-                  Featured Project
+                  Featured Architecture
                 </p>
-                <h4 className="text-sm font-bold text-white">Modern Minimal Residence</h4>
+                <h4 className="text-sm font-bold text-white">Residential Villa Design</h4>
               </div>
               <span className="text-xs px-2.5 py-1 bg-white/20 rounded-md font-semibold text-white">
-                Thrissur
+                Kerala
               </span>
             </div>
           </div>

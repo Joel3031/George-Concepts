@@ -46,8 +46,21 @@ export const dataService = {
       }
     }
     
-    // Fallback to local store
-    return getLocalItem<Project[]>(LOCAL_PROJECTS_KEY, initialProjects);
+    // Fallback to local store with non-destructive reconciliation
+    const cached = getLocalItem<Project[]>(LOCAL_PROJECTS_KEY, initialProjects);
+    if (typeof window !== "undefined" && Array.isArray(cached)) {
+      const cachedSlugs = new Set(cached.map((p) => p.slug || p.id));
+      const missingInitial = initialProjects.filter(
+        (p) => !cachedSlugs.has(p.slug) && !cachedSlugs.has(p.id)
+      );
+      if (missingInitial.length > 0) {
+        const merged = [...cached, ...missingInitial];
+        merged.sort((a, b) => (a.sort_order ?? 99) - (b.sort_order ?? 99));
+        setLocalItem(LOCAL_PROJECTS_KEY, merged);
+        return merged;
+      }
+    }
+    return cached;
   },
 
   async getFeaturedProjects(): Promise<Project[]> {

@@ -7,6 +7,17 @@ export interface ProjectImage {
   caption?: string;
   sort_order?: number;
   created_at?: string;
+  high_res_url?: string;
+  orientation?: 'landscape' | 'portrait' | 'square';
+  aspect_ratio?: string;
+}
+
+export interface ProjectGallerySection {
+  id: string;
+  title: string;
+  subtitle?: string;
+  description?: string;
+  images: ProjectImage[];
 }
 
 export interface Project {
@@ -26,6 +37,7 @@ export interface Project {
   published: boolean;
   sort_order?: number;
   gallery_images?: ProjectImage[];
+  gallery_sections?: ProjectGallerySection[];
   before_image?: string;
   after_image?: string;
   created_at?: string;
@@ -41,6 +53,7 @@ export interface GalleryItem {
   sort_order?: number;
   published: boolean;
   created_at?: string;
+  high_res_url?: string;
 }
 
 export interface BeforeAfterItem {
