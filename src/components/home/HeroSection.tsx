@@ -5,7 +5,7 @@ import { Button } from "../ui/Button";
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative pt-[48px] sm:pt-[54px] lg:pt-28 pb-0 lg:pb-16 overflow-hidden bg-[#FAF9F5] lg:min-h-[92vh] lg:flex lg:items-center lg:justify-center">
+    <section className="relative pt-[61px] sm:pt-[65px] lg:pt-28 pb-0 lg:pb-16 overflow-hidden bg-[#FAF9F5] lg:min-h-[92vh] lg:flex lg:items-center lg:justify-center">
       {/* Background Subtle Gradient Blobs (Desktop Only) */}
       <div className="hidden lg:block absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#76A035]/10 rounded-full blur-3xl pointer-events-none" />
 
