@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: `${siteConfig.name} | Architecture, Interior Design & Turnkey Services | Aloor, Thrissur`,
-    description: siteConfig.description,
+    description: siteConfig.socialDescription,
     type: "website",
     locale: "en_IN",
     siteName: siteConfig.brandName,
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | Architecture, Interior Design & Turnkey Services | Aloor, Thrissur`,
-    description: siteConfig.description,
+    description: siteConfig.socialDescription,
     images: [
       {
         url: siteConfig.socialPreviewImage,

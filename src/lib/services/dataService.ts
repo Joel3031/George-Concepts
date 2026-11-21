@@ -144,7 +144,22 @@ export const dataService = {
       }
     }
 
-    return getLocalItem<GalleryItem[]>(LOCAL_GALLERY_KEY, initialGallery);
+    const cached = getLocalItem<GalleryItem[]>(LOCAL_GALLERY_KEY, initialGallery);
+    if (typeof window !== "undefined" && Array.isArray(cached)) {
+      const hasBroken = cached.some((g) => g.image_url?.includes("photo-1541888946425-d0fbb186a5b3"));
+      if (hasBroken) {
+        const fixed = cached.map((g) => {
+          if (g.image_url?.includes("photo-1541888946425-d0fbb186a5b3")) {
+            const initialMatch = initialGallery.find((ig) => ig.id === g.id);
+            return initialMatch ? { ...g, image_url: initialMatch.image_url } : g;
+          }
+          return g;
+        });
+        setLocalItem(LOCAL_GALLERY_KEY, fixed);
+        return fixed;
+      }
+    }
+    return cached;
   },
 
   async saveGalleryItem(item: Partial<GalleryItem>): Promise<GalleryItem> {

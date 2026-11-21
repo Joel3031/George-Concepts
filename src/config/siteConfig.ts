@@ -30,7 +30,8 @@ export const siteConfig = {
   tagline: "Designing Spaces. Building Dreams.",
   subTagline: "Residential Architecture, Commercial Architecture, Interior Design & Turnkey Services in Thrissur, Kerala.",
 
-  description: "George Concepts Design Studio by architect Jispin George delivers residential architecture, commercial building design, bespoke interior solutions, and turnkey services in Aloor, Thrissur, Kerala.",
+  description: "George Concepts Design Studio by Jispin George delivers residential architecture, commercial building design, bespoke interior solutions, and turnkey services in Aloor, Thrissur, Kerala.",
+  socialDescription: "Thoughtfully designed architecture and interiors, blending functionality, aesthetics, and timeless design.",
 
   // Base URL configuration (configurable via NEXT_PUBLIC_SITE_URL, SITE_URL or Vercel system vars)
   url: getSiteUrl(),
@@ -50,7 +51,7 @@ export const siteConfig = {
     phone: process.env.NEXT_PUBLIC_SITE_PHONE || "+91 9037966377",
     email: process.env.NEXT_PUBLIC_SITE_EMAIL || "hello@georgeconcepts.com",
     whatsapp: process.env.NEXT_PUBLIC_SITE_WHATSAPP || "919037966377", // Digits with country code, no + or spaces
-    whatsappWelcomeMsg: "Hello George Concepts! I would like to inquire about an architectural/interior project.",
+    whatsappWelcomeMsg: "Hi! I'm interested in discussing a project. Could you share some details?",
     address: process.env.NEXT_PUBLIC_SITE_ADDRESS || "George Concepts Design Studio, Aloor, Thrissur, Kerala, India",
   },
 

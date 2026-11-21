@@ -111,11 +111,6 @@ export const Footer: React.FC = () => {
                   Get Consultation
                 </Link>
               </li>
-              <li>
-                <Link href="/admin" rel="nofollow" className="text-stone-500 hover:text-stone-300 text-xs transition-colors">
-                  Admin Portal
-                </Link>
-              </li>
             </ul>
           </div>
 

@@ -5,7 +5,10 @@ import { Button } from "../ui/Button";
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative pt-[61px] sm:pt-[65px] lg:pt-28 pb-0 lg:pb-16 overflow-hidden bg-[#FAF9F5] lg:min-h-[92vh] lg:flex lg:items-center lg:justify-center">
+    <section
+      id="hero"
+      className="relative pt-[61px] sm:pt-[65px] lg:pt-28 pb-0 lg:pb-16 overflow-hidden bg-[#FAF9F5] lg:min-h-[92vh] lg:flex lg:items-center lg:justify-center"
+    >
       {/* Background Subtle Gradient Blobs (Desktop Only) */}
       <div className="hidden lg:block absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#76A035]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -40,7 +43,7 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Bottom Dark Architectural Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07251D] via-[#07251D]/75 via-45% to-transparent flex flex-col justify-end p-5 pb-6 sm:p-7 z-10">
+          <div className="absolute inset-0 bg-gradient-to-t from-[#07251D]/85 via-[#07251D]/40 via-35% to-transparent flex flex-col justify-end p-5 pb-6 sm:p-7 z-10">
 
             {/* Compact Eyebrow Label */}
             <div className="inline-flex items-center gap-2 mb-2">
@@ -51,23 +54,10 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Concise Overlay Headline */}
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-[1.12] mb-4 drop-shadow-sm">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-[1.12] mb-0 drop-shadow-sm">
               Designing Spaces. <br />
               <span className="text-[#A2D157]">Building Dreams.</span>
             </h1>
-
-            {/* Single Prominent Hero Call-to-Action */}
-            <div className="w-full sm:w-auto pr-12 sm:pr-0">
-              <Button
-                href="/projects"
-                variant="primary"
-                size="md"
-                className="w-full sm:w-auto justify-center bg-[#76A035] hover:bg-[#5B8A3C] text-white font-bold shadow-lg shadow-black/25 active:scale-[0.99]"
-                icon={<ArrowRight className="w-4 h-4" />}
-              >
-                Explore Our Projects
-              </Button>
-            </div>
 
           </div>
         </div>

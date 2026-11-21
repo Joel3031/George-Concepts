@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -12,9 +12,14 @@ import { cn } from "@/lib/utils";
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  activeSection?: string;
 }
 
-export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+export const MobileMenu: React.FC<MobileMenuProps> = ({
+  isOpen,
+  onClose,
+  activeSection = "hero",
+}) => {
   const pathname = usePathname();
 
   // Lock body scroll and listen for Escape key when menu is open
@@ -38,15 +43,38 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     };
   }, [isOpen, onClose]);
 
+  const handleLinkClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      onClose();
+      document.body.style.overflow = "";
+
+      if (pathname === "/" && href.startsWith("/#")) {
+        e.preventDefault();
+        const targetId = href.replace("/#", "");
+        if (targetId === "hero") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          window.history.pushState(null, "", "/");
+        } else {
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+            window.history.pushState(null, "", href);
+          }
+        }
+      }
+    },
+    [onClose, pathname]
+  );
+
   if (!isOpen) return null;
 
   const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "About Studio", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Projects", href: "/projects" },
-    { label: "Gallery", href: "/gallery" },
-    { label: "Contact Us", href: "/contact" },
+    { label: "Home", href: "/#hero" },
+    { label: "About Studio", href: "/#about" },
+    { label: "Services", href: "/#services" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Gallery", href: "/#gallery" },
+    { label: "Contact Us", href: "/#contact" },
   ];
 
   return (
@@ -68,7 +96,11 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         <div>
           {/* Header */}
           <div className="flex items-center justify-between pb-5 border-b border-[#E5E2D9]">
-            <Link href="/" onClick={onClose} className="flex items-center gap-2.5 sm:gap-3">
+            <Link
+              href="/"
+              onClick={(e) => handleLinkClick(e, "/#hero")}
+              className="flex items-center gap-2.5 sm:gap-3"
+            >
               <div className="relative w-9 h-9 sm:w-10 sm:h-10">
                 <Image
                   src="/images/logo.svg"
@@ -98,16 +130,17 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           {/* Navigation Links */}
           <nav className="mt-6 sm:mt-8 flex flex-col gap-1.5 sm:gap-2">
             {navLinks.map((link) => {
+              const sectionId = link.href.replace("/#", "");
               const isActive =
-                link.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(link.href);
+                pathname === "/"
+                  ? activeSection === sectionId
+                  : pathname.startsWith("/" + sectionId);
 
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={onClose}
+                  onClick={(e) => handleLinkClick(e, link.href)}
                   className={cn(
                     "min-h-[48px] py-3 px-4 rounded-xl text-base font-semibold transition-all duration-200 flex items-center justify-between group",
                     isActive
@@ -133,10 +166,10 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         {/* Bottom CTA Block */}
         <div className="pt-5 sm:pt-6 border-t border-[#E5E2D9] flex flex-col gap-3.5 sm:gap-4 mt-6">
           <Button
-            href="/contact"
+            href="/#contact"
             variant="primary"
             className="w-full justify-center min-h-[46px]"
-            onClick={onClose}
+            onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleLinkClick(e, "/#contact")}
           >
             Start Your Project
           </Button>

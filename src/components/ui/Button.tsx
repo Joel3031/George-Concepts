@@ -9,6 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
   icon?: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -18,6 +19,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   className,
   icon,
+  onClick,
   ...props
 }) => {
   const baseStyles =
@@ -46,7 +48,11 @@ export const Button: React.FC<ButtonProps> = ({
 
   if (href) {
     return (
-      <Link href={href} className={combinedClasses}>
+      <Link
+        href={href}
+        className={combinedClasses}
+        onClick={onClick as React.MouseEventHandler<HTMLAnchorElement>}
+      >
         {children}
         {icon && <span className="ml-2 inline-flex items-center">{icon}</span>}
       </Link>
@@ -54,7 +60,7 @@ export const Button: React.FC<ButtonProps> = ({
   }
 
   return (
-    <button className={combinedClasses} {...props}>
+    <button className={combinedClasses} onClick={onClick} {...props}>
       {children}
       {icon && <span className="ml-2 inline-flex items-center">{icon}</span>}
     </button>

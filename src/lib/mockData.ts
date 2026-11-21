@@ -9,7 +9,7 @@ export const initialProjects: Project[] = [
     location: "Aloor, Thrissur, Kerala",
     client_name: "Abin Shaju",
     short_description: "A contemporary tropical villa in Aloor, Thrissur, showcasing warm teak louvers, custom sage joinery, marble prayer niches, and precision architectural planning.",
-    description: "Harsham Residence is a bespoke architectural and interior design project located in Aloor, Thrissur, Kerala. Designed by George Concepts – Design Studio under lead architect Jispin George, the residence blends contemporary tropical architecture with refined, tactile interiors.\n\nThe home features double-height volumes, custom teak woodwork, architectural louver screens, and warm cove lighting. The spatial planning seamlessly integrates formal living zones, an open dining area with an integrated marble prayer niche, a dual-kitchen culinary layout, and four thoughtfully appointed bedroom suites with custom dressing vanities.\n\nFrom comprehensive architectural floor plans and under-stair millwork elevations to turnkey interior styling, Harsham Residence exemplifies our commitment to functional elegance and enduring architectural quality.",
+    description: "Harsham Residence is a bespoke architectural and interior design project located in Aloor, Thrissur, Kerala. Designed by George Concepts – Design Studio under lead Jispin George, the residence blends contemporary tropical architecture with refined, tactile interiors.\n\nThe home features double-height volumes, custom teak woodwork, architectural louver screens, and warm cove lighting. The spatial planning seamlessly integrates formal living zones, an open dining area with an integrated marble prayer niche, a dual-kitchen culinary layout, and four thoughtfully appointed bedroom suites with custom dressing vanities.\n\nFrom comprehensive architectural floor plans and under-stair millwork elevations to turnkey interior styling, Harsham Residence exemplifies our commitment to functional elegance and enduring architectural quality.",
     cover_image: "/images/projects/harsham-residence/renders/hero-exterior.webp",
     services_involved: ["Architectural Planning", "Interior Design", "Custom Joinery", "Space Planning", "3D Elevation"],
     featured: true,
@@ -919,7 +919,7 @@ export const initialGallery: GalleryItem[] = [
   },
   {
     id: "gal-6",
-    image_url: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1200&q=80",
+    image_url: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
     title: "Precision Construction Site Supervison",
     category: "Construction",
     description: "Structural column reinforcement and shuttering check",

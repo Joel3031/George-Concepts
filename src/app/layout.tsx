@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { BackToTop } from "@/components/layout/BackToTop";
 import { siteConfig, getSiteUrl } from "@/config/siteConfig";
 
 const siteUrl = getSiteUrl();
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
     url: siteUrl || "/",
     siteName: siteConfig.brandName,
     title: `${siteConfig.name} | Architecture & Interior Design Studio | Aloor, Thrissur`,
-    description: siteConfig.description,
+    description: siteConfig.socialDescription,
     images: [
       {
         url: siteConfig.socialPreviewImage,
@@ -73,7 +74,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | Architecture & Interior Design Studio | Aloor, Thrissur`,
-    description: siteConfig.description,
+    description: siteConfig.socialDescription,
     images: [
       {
         url: siteConfig.socialPreviewImage,
@@ -119,6 +120,7 @@ export default function RootLayout({
         <div className="flex-grow">{children}</div>
         <Footer />
         <WhatsAppButton />
+        <BackToTop />
       </body>
     </html>
   );

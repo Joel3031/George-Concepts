@@ -31,7 +31,7 @@ export const AboutPreview: React.FC = () => {
             <SectionHeading
               badge="ABOUT OUR STUDIO"
               title="Built around ideas. Shaped by design. Delivered through execution."
-              subtitle="George Concepts is an architecture, interior design, and turnkey construction studio led by architect Jispin George, based in Aloor, Thrissur, Kerala."
+              subtitle="George Concepts is an architecture, interior design, and turnkey construction studio led by Jispin George, based in Aloor, Thrissur, Kerala."
               align="left"
               className="mb-4 sm:mb-6"
             />

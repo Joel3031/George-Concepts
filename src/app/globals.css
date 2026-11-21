@@ -115,3 +115,20 @@
 .cursor-ew-resize {
   cursor: ew-resize;
 }
+
+/* Header Offset for Anchor Navigation */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+@media (min-width: 640px) {
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+}
