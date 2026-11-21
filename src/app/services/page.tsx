@@ -1,5 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceCard } from "@/components/ui/ServiceCard";
@@ -68,12 +70,13 @@ export default function ServicesPage() {
                   </p>
                 </div>
                 <div className="shrink-0 w-full sm:w-auto pt-2">
-                  <a
+                  <Link
                     href="/contact"
-                    className="w-full sm:w-auto inline-flex items-center justify-center min-h-[44px] px-5 py-3 rounded-lg bg-[#0C3B2E] text-white font-semibold text-xs uppercase tracking-wider hover:bg-[#07251D] active:scale-95 transition-colors"
+                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0C3B2E] hover:text-[#76A035] transition-colors group py-2"
                   >
-                    Inquire About Service
-                  </a>
+                    <span>Inquire About This Service</span>
+                    <ArrowRight className="w-4 h-4 text-[#76A035] transition-transform duration-200 group-hover:translate-x-1" />
+                  </Link>
                 </div>
               </div>
             ))}

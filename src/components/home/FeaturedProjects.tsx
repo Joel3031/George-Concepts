@@ -72,10 +72,14 @@ export const FeaturedProjects: React.FC = () => {
             ))}
           </div>
         ) : filteredProjects.length > 0 ? (
-          /* Projects Grid */
+          /* Projects Grid: 4 items on mobile for compact scanning, 6 on desktop/tablet */
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 mb-10 sm:mb-14">
-            {filteredProjects.slice(0, 6).map((project) => (
-              <ProjectCard key={project.id} project={project} />
+            {filteredProjects.slice(0, 6).map((project, idx) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                className={cn(idx >= 4 && "hidden md:flex")}
+              />
             ))}
           </div>
         ) : (

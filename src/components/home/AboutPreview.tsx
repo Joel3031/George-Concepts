@@ -36,7 +36,7 @@ export const AboutPreview: React.FC = () => {
               className="mb-4 sm:mb-6"
             />
 
-            <div className="space-y-3.5 sm:space-y-4 text-sm sm:text-base text-[#636E6A] leading-relaxed mb-6 sm:mb-8">
+            <div className="space-y-3.5 sm:space-y-4 text-sm sm:text-base text-[#636E6A] leading-relaxed mb-6">
               <p>
                 We believe that great homes are born at the intersection of aesthetic clarity, structural engineering precision, and lifestyle customization. Rather than separating design from site construction, we integrate architectural planning, custom joinery, electrical systems, and finishing under single-source management.
               </p>
@@ -45,8 +45,24 @@ export const AboutPreview: React.FC = () => {
               </p>
             </div>
 
+            {/* 3 Core Studio Pillars */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 mb-6 sm:mb-8 border-t border-[#E5E2D9]">
+              <div className="flex flex-col">
+                <span className="text-xs font-bold text-[#0C3B2E] tracking-tight mb-0.5">Personalized Vision</span>
+                <p className="text-[11px] text-[#636E6A] leading-relaxed">Tailored floor plans designed around how your family actually lives.</p>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs font-bold text-[#0C3B2E] tracking-tight mb-0.5">Material Rigor</span>
+                <p className="text-[11px] text-[#636E6A] leading-relaxed">Rigorous grading for teak wood, steel, tiling, and joinery finishes.</p>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs font-bold text-[#0C3B2E] tracking-tight mb-0.5">Single Accountability</span>
+                <p className="text-[11px] text-[#636E6A] leading-relaxed">Zero contractor finger-pointing from initial sketch to key handover.</p>
+              </div>
+            </div>
+
             <div className="w-full sm:w-auto">
-              <Button href="/about" variant="primary" size="lg" className="w-full sm:w-auto" icon={<ArrowRight className="w-4 h-4" />}>
+              <Button href="/about" variant="outline" size="md" className="w-full sm:w-auto" icon={<ArrowRight className="w-4 h-4" />}>
                 Read Our Studio Story
               </Button>
             </div>

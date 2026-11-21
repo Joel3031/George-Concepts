@@ -5,13 +5,10 @@ import { TrustSection } from "@/components/home/TrustSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { BeforeAfterSection } from "@/components/home/BeforeAfterSection";
-import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { ProcessTimeline } from "@/components/home/ProcessTimeline";
-import { WhatWeEnsure } from "@/components/home/WhatWeEnsure";
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { GalleryPreview } from "@/components/home/GalleryPreview";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
-import { CallToAction } from "@/components/home/CallToAction";
 import { ContactSection } from "@/components/home/ContactSection";
 
 export const metadata: Metadata = {
@@ -174,13 +171,10 @@ export default function HomePage() {
         <ServicesSection />
         <FeaturedProjects />
         <BeforeAfterSection />
-        <WhyChooseUs />
         <ProcessTimeline />
-        <WhatWeEnsure />
         <AboutPreview />
         <GalleryPreview />
         <TestimonialsSection />
-        <CallToAction />
         <ContactSection />
       </main>
     </>

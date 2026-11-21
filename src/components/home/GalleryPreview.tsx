@@ -8,6 +8,7 @@ import { dataService } from "@/lib/services/dataService";
 import { SectionHeading } from "../ui/SectionHeading";
 import { Lightbox } from "../ui/Lightbox";
 import { Button } from "../ui/Button";
+import { cn } from "@/lib/utils";
 
 export const GalleryPreview: React.FC = () => {
   const [items, setItems] = useState<GalleryItem[]>([]);
@@ -38,28 +39,31 @@ export const GalleryPreview: React.FC = () => {
           subtitle="A curated glimpse into custom joinery details, living room concepts, kitchen islands, and structural facades."
         />
 
-        {/* Masonry / Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+        {/* Masonry / Grid: 2 columns on mobile (4 items), 3 columns on desktop (6 items) */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mb-8 sm:mb-12">
           {displayItems.map((item, idx) => (
             <div
               key={item.id}
               onClick={() => setLightboxIndex(idx)}
-              className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-100 cursor-pointer border border-[#E5E2D9] shadow-sm hover:shadow-xl transition-all duration-300 active:scale-[0.99]"
+              className={cn(
+                "group relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-100 cursor-pointer border border-[#E5E2D9] shadow-sm hover:shadow-xl transition-all duration-300 active:scale-[0.99]",
+                idx >= 4 && "hidden lg:block"
+              )}
             >
               <Image
                 src={item.image_url}
                 alt={`${item.title} — ${item.category} by George Concepts`}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               {/* Overlay with details */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0C3B2E]/90 via-[#0C3B2E]/30 to-transparent opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 p-4 sm:p-6 flex flex-col justify-end">
-                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#A2D157]">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0C3B2E]/90 via-[#0C3B2E]/30 to-transparent opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 p-2.5 sm:p-5 flex flex-col justify-end">
+                <span className="text-[9px] sm:text-xs font-bold uppercase tracking-widest text-[#A2D157]">
                   {item.category}
                 </span>
-                <h4 className="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2 line-clamp-1">{item.title}</h4>
-                <div className="inline-flex items-center text-xs font-semibold text-white/90">
+                <h4 className="text-xs sm:text-lg font-bold text-white mb-0.5 sm:mb-2 line-clamp-1">{item.title}</h4>
+                <div className="hidden sm:inline-flex items-center text-xs font-semibold text-white/90">
                   <Maximize2 className="w-3.5 h-3.5 mr-1 text-[#76A035]" /> View Full Resolution
                 </div>
               </div>

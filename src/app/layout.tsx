@@ -10,8 +10,16 @@ const isPreview =
   process.env.VERCEL_ENV === "preview" ||
   process.env.NEXT_PUBLIC_VERCEL_ENV === "preview";
 
+// Resolve metadataBase: Use configured site domain/environment URL; in local development,
+// fallback to localhost port to satisfy Next.js metadata resolution without polluting production.
+const metadataBaseUrl = siteUrl
+  ? siteUrl
+  : process.env.NODE_ENV === "development"
+  ? `http://localhost:${process.env.PORT || 3000}`
+  : undefined;
+
 export const metadata: Metadata = {
-  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
+  metadataBase: metadataBaseUrl ? new URL(metadataBaseUrl) : undefined,
   alternates: isPreview
     ? undefined
     : {

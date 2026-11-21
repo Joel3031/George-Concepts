@@ -22,7 +22,7 @@ export const HeroSection: React.FC = () => {
             alt="George Concepts Residential Architecture — Kerala Contemporary Elevation"
             fill
             priority
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, (max-width: 1280px) 42vw, 488px"
             className="object-cover object-center animate-slow-zoom"
           />
 
@@ -113,19 +113,6 @@ export const HeroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Secondary Action: Start Your Project */}
-            <div>
-              <Button
-                href="/contact"
-                variant="outline"
-                size="md"
-                className="w-full justify-center border-[#0C3B2E] text-[#0C3B2E] hover:bg-[#0C3B2E] hover:text-white"
-                icon={<ArrowRight className="w-4 h-4" />}
-              >
-                Start Your Project
-              </Button>
-            </div>
-
           </div>
         </div>
       </div>
@@ -200,7 +187,7 @@ export const HeroSection: React.FC = () => {
               alt="George Concepts Residential Architecture — Kerala Contemporary Elevation"
               fill
               priority
-              sizes="45vw"
+              sizes="(max-width: 1280px) 42vw, 488px"
               className="object-cover object-[25%_center] animate-slow-zoom"
             />
             {/* Dark Gradient Glass Card overlay at bottom */}

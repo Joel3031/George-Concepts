@@ -106,27 +106,20 @@ export const ProcessTimeline: React.FC = () => {
               return (
                 <div
                   key={step.step}
-                  className="relative flex items-start gap-4 sm:gap-6 pb-8 sm:pb-10 last:pb-0 group"
+                  className="relative flex items-start gap-3.5 sm:gap-5 pb-5 sm:pb-7 last:pb-0 group"
                 >
                   {/* Visual Node on the Rail */}
-                  <div className="relative z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#07251D] border-2 border-[#76A035] text-[#A2D157] flex items-center justify-center shrink-0 shadow-md">
+                  <div className="relative z-10 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#07251D] border-2 border-[#76A035] text-[#A2D157] flex items-center justify-center shrink-0 shadow-md">
                     <Icon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.75]" />
                   </div>
 
                   {/* Content Block */}
                   <div className="flex-1 pt-0.5">
-                    <div className="flex flex-wrap items-center gap-2 mb-1">
-                      <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#A2D157]">
-                        Phase {step.step}
-                      </span>
-                      <span className="text-white/20">•</span>
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-stone-400 inline-flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#76A035]" />
-                        Milestone {step.step}
-                      </span>
-                    </div>
+                    <span className="font-mono text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#A2D157] block mb-1">
+                      Phase {step.step}
+                    </span>
 
-                    <h3 className="text-base sm:text-lg font-bold text-white tracking-tight mb-1.5">
+                    <h3 className="text-sm sm:text-base font-bold text-white tracking-tight mb-1">
                       {step.title}
                     </h3>
 
